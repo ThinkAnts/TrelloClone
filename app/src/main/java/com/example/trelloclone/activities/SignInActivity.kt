@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.Toolbar
 import com.example.trelloclone.R
+import com.example.trelloclone.firebase.FirestoreClass
+import com.example.trelloclone.models.User
 import com.google.firebase.auth.FirebaseAuth
 
 class SignInActivity : BaseActivity() {
@@ -74,7 +76,7 @@ class SignInActivity : BaseActivity() {
                         val user = auth.currentUser
                         startActivity(Intent(this, MainActivity::class.java))
                         // Calling the FirestoreClass signInUser function to get the data of user from database.
-                       // FirestoreClass().loadUserData(this@SignInActivity)
+                        //FirestoreClass().loadUserData(this@SignInActivity)
                     } else {
                         Toast.makeText(
                             this@SignInActivity,
@@ -105,9 +107,9 @@ class SignInActivity : BaseActivity() {
     /**
      * A function to get the user details from the firestore database after authentication.
      */
-//    fun signInSuccess(user: User) {
-//        hideProgressDialog()
-//        startActivity(Intent(this@SignInActivity, MainActivity::class.java))
-//        this.finish()
-//    }
+    fun signInSuccess(user: User) {
+        hideProgressDialog()
+        startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+        this.finish()
+    }
 }

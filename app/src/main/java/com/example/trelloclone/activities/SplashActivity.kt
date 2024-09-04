@@ -8,6 +8,7 @@ import android.os.Handler
 import android.view.WindowManager
 import android.widget.TextView
 import com.example.trelloclone.R
+import com.example.trelloclone.firebase.FirestoreClass
 
 class SplashActivity : AppCompatActivity() {
 
@@ -24,7 +25,15 @@ class SplashActivity : AppCompatActivity() {
         tv_app_name.typeface = typeface
 
         Handler().postDelayed({
-            startActivity(Intent(this, IntroActivity::class.java))
+
+            var currentUserID = FirestoreClass().getCurrentUserID()
+
+            if (currentUserID.isNotEmpty()) {
+                startActivity(Intent(this, MainActivity::class.java))
+            } else {
+                startActivity(Intent(this, IntroActivity::class.java))
+            }
+
         }, 2500)
 
         window.setFlags(
