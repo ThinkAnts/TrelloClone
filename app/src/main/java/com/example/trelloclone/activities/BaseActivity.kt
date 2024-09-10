@@ -18,11 +18,10 @@ open class BaseActivity : AppCompatActivity() {
      * This is a progress dialog instance which we will initialize later on.
      */
     private lateinit var mProgressDialog: Dialog
-    //private lateinit var tv_progress_text: TextView
+    private lateinit var tv_progress_text: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //tv_progress_text = findViewById(R.id.tv_progress_text)
     }
 
     /**
@@ -34,7 +33,8 @@ open class BaseActivity : AppCompatActivity() {
         /*Set the screen content from a layout resource.
         The resource will be inflated, adding all top-level views to the screen.*/
         mProgressDialog.setContentView(R.layout.dialog_progress)
-        //tv_progress_text.text = text
+        tv_progress_text = mProgressDialog.findViewById(R.id.tv_progress_text)
+        tv_progress_text.text = text
 
         //Start the dialog and display it on screen.
         mProgressDialog.show()

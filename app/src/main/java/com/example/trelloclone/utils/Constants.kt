@@ -40,6 +40,8 @@ object Constants {
 
     // A unique code of image selection from Phone Storage.
     const val PICK_IMAGE_REQUEST_CODE = 2
+    const val MY_PROFILE_REQUEST_CODE = 1
+    const val CREATE_BOARD_REQUEST_CODE = 12
 
     const val PROGEMANAG_PREFERENCES: String = "ProjemanagPrefs"
     const val FCM_TOKEN: String = "fcmToken"
